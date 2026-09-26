@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D City Game with UI</title>
+    <title>3D City Multiplayer Game</title>
     <style>
         body { margin: 0; overflow: hidden; background-color: #87ceeb; font-family: sans-serif; }
         canvas { display: block; }
@@ -73,10 +73,10 @@
             transform: scale(0.9);
         }
         #btn-attack {
-            background: rgba(231, 76, 60, 0.8); /* สีแดงสไตล์ปุ่มโจมตี */
+            background: rgba(231, 76, 60, 0.8);
         }
         #btn-collect {
-            background: rgba(46, 204, 113, 0.8); /* สีเขียวสไตล์ปุ่มเก็บของ */
+            background: rgba(46, 204, 113, 0.8);
         }
     </style>
 </head>
@@ -99,9 +99,10 @@
         <button class="action-btn" id="btn-attack">⚔️ ตี</button>
     </div>
 
+    <!-- โหลดไลบรารี Three.js, GLTFLoader และ Socket.io Client -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
     <script src="game.js"></script>
 </body>
 </html>
-
