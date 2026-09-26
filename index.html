@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D City Game with UI</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #87ceeb; font-family: sans-serif; }
+        canvas { display: block; }
+        
+        /* สไตล์ปุ่มบังคับทิศทาง (D-Pad) มุมซ้ายล่าง */
+        #controls {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 10;
+        }
+        .btn-row {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .control-btn {
+            width: 65px;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            font-size: 22px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.1s;
+        }
+        .control-btn:active {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0.92);
+        }
+
+        /* สไตล์ปุ่มแอคชัน (ตี / เก็บของ) มุมขวาล่าง */
+        #action-controls {
+            position: absolute;
+            bottom: 40px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+        .action-btn {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s;
+        }
+        .action-btn:active {
+            transform: scale(0.9);
+        }
+        #btn-attack {
+            background: rgba(231, 76, 60, 0.8); /* สีแดงสไตล์ปุ่มโจมตี */
+        }
+        #btn-collect {
+            background: rgba(46, 204, 113, 0.8); /* สีเขียวสไตล์ปุ่มเก็บของ */
+        }
+    </style>
+</head>
+<body>
+    <!-- ปุ่มจำลองการเดิน (D-Pad) -->
+    <div id="controls">
+        <div class="btn-row">
+            <button class="control-btn" id="btn-up">⬆️</button>
+        </div>
+        <div class="btn-row">
+            <button class="control-btn" id="btn-left">⬅️</button>
+            <button class="control-btn" id="btn-down">⬇️</button>
+            <button class="control-btn" id="btn-right">➡️</button>
+        </div>
+    </div>
+
+    <!-- ปุ่มแอคชัน (ตี / เก็บของ) -->
+    <div id="action-controls">
+        <button class="action-btn" id="btn-collect">📦 เก็บ</button>
+        <button class="action-btn" id="btn-attack">⚔️ ตี</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
 
